@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="shoppingList">
+        <h1>{{ header.toLocaleUpperCase() }}</h1>
+        <button v-if="state ==='default'" class="btn btn-primary" @click="changeState('edit')">Add Item</button>
+        <button v-else class="btn btn-danger" @click="changeState('default')">Cancel</button>
+
+        <div v-if="state === 'edit'" class="addItemForm">
+            <input v-model="newItem" type="text" placeholder="Add an item" v-on:keyup.enter="items.push(newItem)">
+            <p>{{characterCount}}/200</p>
+            <button class="btn btn-primary" :disabled="newItem.length===0" @click="saveItem">Save Item</button>
+        </div>
+
+        <ul>
+            <li v-for="item in reversedItems" :class="{strikeout: item.purchased}" @click="togglePurchased(item)">{{
+                item.label }}</li>
+        </ul>
+        <p v-if="items.length === 0">Nice job! You've bought all your items.</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
