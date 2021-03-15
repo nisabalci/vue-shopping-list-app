@@ -1,1 +1,1 @@
-"# vue-shopping-list-app" 
+# Vue Shopping List App
