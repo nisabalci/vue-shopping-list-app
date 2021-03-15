@@ -27,9 +27,9 @@ new Vue({
 		reversedItems() {
 			return this.items.slice(0).reverse();
 		},
-		// characterCount() {
-		// 	return this.newItem.length;
-		// },
+		characterCount() {
+			return this.newItem.length;
+		},
 	},
 
 	methods: {
